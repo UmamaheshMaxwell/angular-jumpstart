@@ -9,11 +9,8 @@ var OrdersController = function($scope, $http, $routeParams, customerFactory){
  	function init(){
  		// Search for the customer for the customerId
  		customerFactory.getCustomer(customerId)
-			.success(function(customer){
-				$scope.customers = customer
-			})
-			.error(function(data, status, headers, config){
-				// handle error
+			.then(function(customer){				
+				$scope.customer = customer.data
 			})
  	}
 	
